@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Help My Health</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="/static/HelpMyHealthLogo.png" class="app-logo" alt="HelpMyHealth logo">
+      </div>
+
+      <button class="btn btn-primary" id="newChatBtn">New chat</button>
+
+      <div class="sidebar-section">
+        <div class="section-title">Quick Actions</div>
+        <div class="template-list">
+          <button class="chip" data-template="I have a sore throat.">Sore throat</button>
+          <button class="chip" data-template="I have a headache and nausea.">Headache + nausea</button>
+          <button class="chip" data-template="Diarrhoea and vomiting">Diarrhoea or Vomiting</button>
+          <button class="chip" data-template="I have a stomach ache">Stomach ache</button>
+          <button class="chip" data-template="I have a nose bleed.">Nose bleed</button>
+          <button class="chip" data-template="I have a sprain.">Sprain</button>
+          <button class="chip" data-template="I have back pain.">Back pain</button>
+          <button class="chip" data-template="I have an earache.">Ear pain</button>
+          <button class="chip" data-template="I have a toothache.">Tooth pain</button>
+          <button class="chip" data-template="I have a allergies.">Allergies</button>
+          <button class="chip" data-template="I have a Common cold.">Common Cold</button>
+          <button class="chip" data-template="I have laryngitis.">Lost voice</button>
+          <button class="chip" data-template="I have a burn.">Burn</button>
+          <button class="chip" data-template="I have a migraine.">Migraine</button>
+          <button class="chip" data-template="I have a Head injury and concussion.">Concussion or Head Injury</button>
+          <button class="chip" data-template="I have an ear infections.">Ear Infection</button>
+          <button class="chip" data-template="I have chickenpox.">Chickenpox</button>
+          <button class="chip" data-template="I have a Tremor or shaking hands.">Tremor or shaking hands</button>
+          
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="note-title">Safety note</div>
+        <div class="note">
+          This app provides general information, not a diagnosis.
+          If you have urgent symptoms, seek emergency care.
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-title">AI-guided first aid & health advice — based only on trusted medical sources</div>
+
+        <div class="topbar-actions">
+          <button class="btn" id="toggleSourcesBtn">Sources</button>
+          <button class="btn danger" id="emergencyBtn">Emergency</button>
+        </div>
+      </header>
+
+      
+      <section class="chat" id="chat">
+        <!-- messages injected here -->
+      </section>
+
+      <footer class="composer">
+        <div class="composer-row">
+          <input id="input" class="input" placeholder="Describe your symptoms or health question…" />
+          <button id="sendBtn" class="btn btn-primary">Send</button>
+        </div>
+        <div class="composer-hint">
+          Not a diagnosis. For severe or worsening symptoms, seek medical care.
+        </div>
+      </footer>
+    </main>
+
+    <!-- Sources Drawer -->
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <div>
+          <div class="drawer-title">Evidence & Sources</div>
+          <div class="drawer-subtitle">Ranked by reliability (year + sample size)</div>
+        </div>
+        <button class="btn" id="closeDrawerBtn">Close</button>
+      </div>
+
+      <div class="drawer-body" id="sourcesList">
+        <div class="empty">
+          Ask a question to fetch PubMed sources.
+        </div>
+      </div>
+    </aside>
+
+    <div class="backdrop" id="backdrop"></div>
+  </div>
+
+
+  <div class="modal" id="safetyModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card" role="document">
+      <div class="modal-title">Safety first</div>
+      <div class="modal-body">
+        <ul class="modal-list">
+          <li><b>Not a doctor.</b></li>
+          <li><b>Not for emergencies.</b></li>
+          <li><b>If you have chest pain → call emergency now.</b></li>
+        </ul>
+        <div class="modal-sub">
+          By continuing, you understand this app provides general information, not a diagnosis.
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" id="safetyCancelBtn">Leave</button>
+        <button class="btn btn-primary" id="safetyAcceptBtn">I understand</button>
+      </div>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+
+</body>
+</html>
